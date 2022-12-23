@@ -106,7 +106,7 @@ def process_feed(feed):
     d = feedparser.parse(feed['uri'])
 
     # Iterate over entries
-    for entry in d.entries:
+    for entry in d.entries[0:LAST_ENTRIES]:
 
         # compare a checksum of the URL to the stored one
         # this is used to prevent us re-sending old items
@@ -159,6 +159,7 @@ MASTODON_TOKEN = os.getenv('MASTODON_TOKEN', "")
 MASTODON_VISIBILITY = os.getenv('MASTODON_VISIBILITY', 'public')
 DRY_RUN = os.getenv('DRY_RUN', "N").upper()
 SKIP_TAGS = os.getenv('SKIP_TAGS', "").lower().split(',')
+LAST_ENTRIES = int(os.getenv('LAST_ENTRIES', 10))
 
 # We want to be able to use keep-alive if we're posting multiple things
 SESSION = requests.session()
