@@ -113,7 +113,7 @@ def process_feed(feed):
         linkhash = hashlib.sha256(entry.link.encode('utf-8')).hexdigest()
 
         if storedhash == linkhash:
-            print("Reached last seen entry")
+            print("  Reached last seen entry")
             break
 
         en = {}
@@ -167,4 +167,5 @@ SESSION = requests.session()
 for feed in FEEDS:
     feed_hash = hashlib.sha256(feed['uri'].encode('utf-8')).hexdigest()
     feed['hash_file'] = os.path.join(HASH_DIR, feed_hash)
+    print(f"Processing: {feed['uri']}")
     process_feed(feed)
