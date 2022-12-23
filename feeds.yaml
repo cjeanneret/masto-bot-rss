@@ -1,9 +1,18 @@
 ---
-- uri: https://www.bentasker.co.uk/rss.xml
-  sensitive: true
+- uri: https://github.com/cjeanneret/masto-bot-rss/commits/main.atom
+  sensitive: false
+  tags:
+    - dev
+    - mastobot
 - uri: https://govcert.ch/blog/rss.xml
   sensitive: false
   tags:
     - security
     - switzerland
     - govcert_ch
+- uri: https://nvd.nist.gov/download/nvd-rss.xml
+  sensitive: false
+  tags:
+    - security
+    - cve
+    - nist
