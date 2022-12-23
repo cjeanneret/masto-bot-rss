@@ -1,0 +1,9 @@
+---
+- uri: https://www.bentasker.co.uk/rss.xml
+  sensitive: true
+- uri: https://govcert.ch/blog/rss.xml
+  sensitive: false
+  tags:
+    - security
+    - switzerland
+    - govcert_ch
